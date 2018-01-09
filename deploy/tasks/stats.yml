@@ -1,0 +1,8 @@
+---
+- local_action: command date +%s
+  register: finish_time
+
+- local_action: command expr {{ finish_time.stdout }} - {{ start_time.stdout }}
+  register: play_time
+
+- debug: msg="Play time {{ play_time.stdout }} sec."

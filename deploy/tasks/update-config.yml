@@ -1,0 +1,12 @@
+---
+- name: Update settings
+  copy: src=../config/settings.json dest={{ release_path.stdout }}/config/settings.json
+
+- name: Update profile settings
+  copy: src=../config/settings.{{ item }}.json dest={{ release_path.stdout }}/config/settings.{{ item }}.json
+  with_items: "{{ profiles }}"
+  ignore_errors: true
+
+- name: Update telegram-cli config
+  synchronize: src=~/.telegram-cli/ dest=~/.telegram-cli
+  when: update_services

@@ -1,0 +1,9 @@
+deploy_to: "~/knight-bot"
+profiles:
+  - default
+removed_profiles: []
+update_services: true
+shared_dirs:
+  - node_modules
+  - log
+  - config/profiles

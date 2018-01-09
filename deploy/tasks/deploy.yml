@@ -1,0 +1,21 @@
+---
+- import_tasks: begin.yml
+- import_tasks: setup.yml
+- import_tasks: stats.yml
+- import_tasks: update-code.yml
+- import_tasks: stats.yml
+- import_tasks: symlink.yml
+- import_tasks: stats.yml
+- import_tasks: remove.yml
+  when: removed_profiles
+- import_tasks: stats.yml
+- import_tasks: install.yml
+- import_tasks: services.yml
+  when: update_services
+- import_tasks: stats.yml
+- import_tasks: update-config.yml
+- import_tasks: stats.yml
+- import_tasks: restart.yml
+- import_tasks: stats.yml
+- import_tasks: cleanup.yml
+- import_tasks: stats.yml

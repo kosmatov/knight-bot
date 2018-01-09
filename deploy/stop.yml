@@ -1,0 +1,13 @@
+---
+- name: Stop
+  hosts: all
+  gather_facts: no
+  roles:
+    - app
+  tasks:
+    - import_tasks: tasks/begin.yml
+    - name: Stop services
+      shell: systemctl stop kbot-{{ item }}
+      with_items: "{{ profiles }}"
+      become: yes
+    - import_tasks: tasks/stats.yml

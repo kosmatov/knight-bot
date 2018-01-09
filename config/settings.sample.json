@@ -1,0 +1,27 @@
+{
+  "im": {
+    "chats": {
+      "master": {
+        "type": "master",
+        "name": "Master chat"
+      },
+      "mygroup": {
+        "type": "groupchat",
+        "name": "Group chat"
+      }
+    }
+  },
+  "hero": {
+    "class": "miner",
+    "options": {
+      "build": ["hq", "gladiators"],
+      "repair": ["hq", "wall"],
+      "seafront_chance": 69,
+      "forest_chance": 70,
+      "cave_chance": 21,
+      "korovan_chance": 29,
+      "max_coins": 50,
+      "max_donate": 20
+    }
+  }
+}

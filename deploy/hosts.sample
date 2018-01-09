@@ -1,0 +1,2 @@
+[bot]
+host.sample ansible_ssh_user=cloud-user

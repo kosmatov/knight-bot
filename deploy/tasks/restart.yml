@@ -1,0 +1,15 @@
+---
+- name: Reload systemd daemon
+  shell: systemctl daemon-reload
+  when: reload_systemd
+  become: yes
+
+- name: Restart rsyslog
+  shell: systemctl restart rsyslog
+  when: restart_rsyslog
+  become: yes
+
+- name: Restart services
+  shell: systemctl restart kbot-{{ item }}
+  with_items: "{{ profiles }}"
+  become: yes

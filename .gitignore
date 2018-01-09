@@ -1,0 +1,12 @@
+vendor
+log
+*.sw*
+yarn-error.log
+node_modules
+DEPLOY*
+REVISION
+deploy/hosts
+deploy/roles/app/defaults/main.yml
+deploy/*.retry
+config/settings*.json
+config/profiles/*.json

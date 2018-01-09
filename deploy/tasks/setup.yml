@@ -1,0 +1,25 @@
+---
+- name: Ensure deployment base path exists
+  file: state=directory path={{ deploy_to }}
+
+- name: Set releases path
+  command: echo "{{ deploy_to }}/releases"
+  register: releases_path
+
+- name: Ensure releases folder exists
+  file: state=directory path={{ releases_path.stdout }}
+
+- name: Set current path
+  command: echo "{{ deploy_to }}/current"
+  register: current_path
+
+- name: Set shared path
+  command: echo "{{ deploy_to }}/shared"
+  register: shared_path
+
+- name: Ensure shared path exists
+  file: state=directory path={{ shared_path.stdout }}
+
+- name: Ensure shared dirs exists
+  file: state=directory path={{ shared_path.stdout }}/{{ item }}
+  with_items: "{{ shared_dirs }}"

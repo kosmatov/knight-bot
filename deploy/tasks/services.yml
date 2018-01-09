@@ -1,0 +1,21 @@
+---
+- name: Create rsyslog conf
+  template: src=templates/rsyslog.conf dest=/etc/rsyslog.d/kbot-{{ item }}.conf
+  with_items: "{{ profiles }}"
+  become: yes
+
+- name: Create logrotate conf
+  template: src=templates/logrotate.conf dest=/etc/logrotate.d/kbot mode=0644 owner=root
+  become: yes
+
+- name: Ensure log path writable
+  file: state=directory path={{ shared_path.stdout }}/log mode=0777
+
+- name: Detect Node.js path
+  shell: which node
+  register: nodejs_path
+
+- name: Create systemd services
+  template: src=templates/app.service dest=/etc/systemd/system/kbot-{{ item }}.service
+  with_items: "{{ profiles }}"
+  become: yes

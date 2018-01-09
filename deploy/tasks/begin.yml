@@ -1,0 +1,3 @@
+---
+- local_action: command date +%s
+  register: start_time

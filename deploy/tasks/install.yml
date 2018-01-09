@@ -1,0 +1,5 @@
+---
+- name: Install
+  shell: make NODE_ENV=production install
+  args:
+    chdir: "{{ current_path.stdout }}"

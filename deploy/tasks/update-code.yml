@@ -1,0 +1,38 @@
+---
+- name: Get release timestamp
+  local_action: command date -u +%Y%m%d%H%M%S
+  run_once: true
+  register: r_timestamp
+  become: no
+
+- name: Set release version from timestamp
+  set_fact: release_version={{ r_timestamp.stdout }}
+  when: release_version is not defined
+
+- name: Get release path
+  command: echo "{{ releases_path.stdout }}/{{ release_version }}"
+  register: release_path
+
+- name: Ensure cached-copy folder exists
+  file: state=directory path={{ shared_path.stdout }}/cached-copy
+
+- name: GIT | Update remote repository
+  git:
+    repo: "{{ git_repo }}"
+    dest: "{{ shared_path.stdout }}/cached-copy"
+    version: "{{ git_branch }}"
+    accept_hostkey: yes
+    update: yes
+    force: yes
+    clone: yes
+
+- name: Copy repo to release folder
+  shell: "cp -r {{ shared_path.stdout }}/cached-copy/ {{ release_path.stdout }}"
+
+- name: Touch DEPLOY_UNFINISHED
+  file: state=touch path={{ release_path.stdout }}/DEPLOY_UNFINISHED
+
+- name: Copy release version into REVISION file
+  shell: echo `git rev-parse HEAD` > REVISION
+  args:
+    chdir: "{{ release_path.stdout }}"

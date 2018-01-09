@@ -1,0 +1,7 @@
+---
+- name: Symlink shared dirs
+  file: state=link path={{ release_path.stdout }}/{{ item }} src={{ shared_path.stdout }}/{{ item }}
+  with_items: "{{ shared_dirs }}"
+
+- name: Change softlink to new release
+  file: state=link path={{ deploy_to }}/current src={{ release_path.stdout }}

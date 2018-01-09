@@ -1,0 +1,18 @@
+---
+- name: Stop services
+  shell: systemctl stop kbot-{{ item }}
+  with_items: "{{ removed_profiles }}"
+  ignore_errors: yes
+  become: yes
+
+- name: Remove rsyslog conf
+  file: state=absent path=/etc/rsyslog.d/kbot-{{ item }}.conf
+  with_items: "{{ removed_profiles }}"
+
+- name: Remove logrotate conf
+  file: state=absent path=/etc/logrotate.d/kbot-{{ item }}.conf
+  with_items: "{{ removed_profiles }}"
+
+- name: Remove systemd services
+  file: state=absent path=/etc/systemd/system/kbot-{{ item }}.service
+  with_items: "{{ removed_profiles }}"

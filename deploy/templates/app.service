@@ -1,0 +1,19 @@
+[Unit]
+Description=Knight Bot {{ item }}
+
+[Service]
+ExecStart={{ nodejs_path.stdout }} {{ current_path.stdout }}/knight-bot.js
+Restart=always
+User=cloud-user
+Group=cloud-user
+StandardError=syslog
+StandardOutput=syslog
+SyslogIdentifier=kbot-{{ item }}
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+Environment=PROFILE={{ item }}
+Environment=LOG_LEVEL=3
+WorkingDirectory={{ current_path.stdout }}
+
+[Install]
+WantedBy=multi-user.target

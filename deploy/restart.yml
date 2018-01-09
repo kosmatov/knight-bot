@@ -1,0 +1,13 @@
+---
+- name: Restart
+  hosts: all
+  gather_facts: no
+  vars:
+    restart_rsyslog: false
+    reload_systemd: false
+  roles:
+    - app
+  tasks:
+    - import_tasks: tasks/begin.yml
+    - import_tasks: tasks/restart.yml
+    - import_tasks: tasks/stats.yml
