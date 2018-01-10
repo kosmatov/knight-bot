@@ -420,8 +420,8 @@
     },
     "legate": {
       "forwards": {
-        "profile": true,
-        "report": true
+        "profile": false,
+        "report": false
       }
     },
     "ignore_messages": [
