@@ -120,7 +120,4 @@ rl.on('close', () => {
   process.exit(0)
 })
 
-setTimeout(() => {
-  im.start(tdcli)
-  setInterval(rlBufferRead, 500)
-}, 60000 + Math.floor(Math.random() * 100000))
+im.start(tdcli, () => setInterval(rlBufferRead, 100))
