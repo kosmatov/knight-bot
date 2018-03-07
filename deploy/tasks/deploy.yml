@@ -1,5 +1,4 @@
 ---
-- import_tasks: begin.yml
 - import_tasks: setup.yml
 - import_tasks: update-code.yml
 - import_tasks: symlink.yml
