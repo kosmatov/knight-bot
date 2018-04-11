@@ -4,6 +4,7 @@
 - import_tasks: symlink.yml
 - import_tasks: remove.yml
   when: removed_profiles
+  become: yes
 - import_tasks: install.yml
 - import_tasks: services.yml
   when: update_services

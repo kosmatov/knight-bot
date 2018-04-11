@@ -3,7 +3,6 @@
   shell: systemctl stop kbot-{{ item }}
   with_items: "{{ removed_profiles }}"
   ignore_errors: yes
-  become: yes
 
 - name: Remove rsyslog conf
   file: state=absent path=/etc/rsyslog.d/kbot-{{ item }}.conf
