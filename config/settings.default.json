@@ -21,6 +21,16 @@
         "name": "Великий Лотос",
         "link": "t.me/MintFortressBot"
       },
+      "black_castle": {
+        "type": "fortressbot",
+        "name": "Black Castle",
+        "link": "t.me/BlackCastleBot"
+      },
+      "twilight_castle": {
+        "type": "fortressbot",
+        "name": "Twilight Castle Bot",
+        "link": "t.me/TwilightCastleBot"
+      },
       "legate": {
         "type": "fortressbot",
         "name": "Legate Bot",
@@ -580,11 +590,24 @@
   },
   "fortressbot": {
     "oko": {
-      "_battle_reg": "Хочу участвовать",
       "forwards": {
         "profile": true,
         "build_start": true,
         "repair_start": true
+      }
+    },
+    "black_castle": {
+      "forwards": {
+        "profile": true,
+        "build_finish": true,
+        "repair_finish": true
+      }
+    },
+    "twilight_castle": {
+      "forwards": {
+        "profile": true,
+        "build_finish": true,
+        "repair_finish": true
       }
     },
     "mint": {
