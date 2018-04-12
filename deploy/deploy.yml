@@ -6,8 +6,6 @@
     keep_releases: 5
     git_repo: "https://github.com/kosmatov/knight-bot"
     git_branch: "master"
-    restart_rsyslog: true
-    reload_systemd: true
   roles:
     - app
   tasks:
