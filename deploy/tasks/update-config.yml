@@ -6,7 +6,6 @@
   copy: src=../config/settings.{{ item }}.json dest={{ release_path.stdout }}/config/settings.{{ item }}.json
   with_items: "{{ profiles }}"
   ignore_errors: true
-  when: update_profiles
 
 - name: Update telegram-cli config
   synchronize: src=~/.telegram-cli/ dest=~/.telegram-cli
