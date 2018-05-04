@@ -496,6 +496,7 @@
       "korovan_chance": 29,
       "max_coins": 50,
       "max_donate": 20,
+      "trade_skip": [],
       "battle_threshold": 15
     },
     "states": {
