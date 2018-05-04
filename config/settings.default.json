@@ -91,7 +91,7 @@
       "white_lich": {
         "type": "raidboss",
         "name": "Лич (50 ур) - доступен игрокам уровня 46+",
-        "link": "t.me/whitr_lich",
+        "link": "t.me/white_lich",
         "opts": {
           "min_level": 46,
           "max_level": 99
