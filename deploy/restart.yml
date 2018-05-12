@@ -9,3 +9,4 @@
     - app
   tasks:
     - import_tasks: tasks/restart.yml
+      become: true
