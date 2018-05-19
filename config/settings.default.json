@@ -8,8 +8,8 @@
       },
       "game": {
         "type": "game",
-        "name": "Chat Wars",
-        "link": "t.me/ChatWarsBot"
+        "name": "Chat Wars Classic",
+        "link": "t.me/ChatWarsClassicBot"
       },
       "oko": {
         "type": "fortressbot",
